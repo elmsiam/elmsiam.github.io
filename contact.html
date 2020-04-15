@@ -113,5 +113,43 @@
 </html>
 
 <script>
-  
+  var elem = document.getElementById("contactForm");
+  elem.onsubmit = function validateSurname() {
+    var allAlpha = true;
+    var flaggedElem = 0;
+    var elem1 = document.getElementById("fname");
+    var elem2 = document.getElementById("lname");
+    var message = document.getElementById('a')
+    var inputValue = elem.value.trim();
+    var inputValue2=elem2.value.trim();
+    inputValue = inputValue.toUpperCase();
+    inputValue2 = inputValue2.toUpperCase();
+    for (var i = 0; i < inputValue.length; i++) {
+      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z" ) { 
+          allAlpha = false; 
+          flaggedElem = 1;
+      }
+                  
+    } 
+    for (var i = 0; i < inputValue2.length; i++) {
+      if (inputValue2.charAt(i) < "A" || inputValue2.charAt(i) > "Z" ) { 
+        allAlpha = false; 
+        flaggedElem = 2;
+      }
+                  
+    } 
+    if (!allAlpha){
+      message.innerHTML = ("Please enter a name using only letters");
+      if(flaggedElem == 1){
+        elem1.focus();
+      }
+      else if(flaggedElem == 2) {
+        elem2.focus();
+      }
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
 </script>
