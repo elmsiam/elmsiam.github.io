@@ -105,11 +105,14 @@ const images = [
 
 
 function clearItems(){
-    //clear item elements from item listings
-    var imgnum = document.images.length;
-    for (var i of imgnum) { 
-        var d = document.getElementById(i);
-        d.parentNode.removeChild(d);
+  var imgnum = document.getElementById("itemscontainer").childElementCount;
+    if(imgnum!= 0){
+      console.log(imgnum);
+      var d = document.getElementById("itemscontainer").lastElementChild;
+      while(d) { 
+        document.getElementById("itemscontainer").removeChild(d);
+        d = document.getElementById("itemscontainer").lastElementChild;
+      } 
     }
 };
 
@@ -179,48 +182,57 @@ function chooseItems (itemType){
 function showWebDesc(){
   var bio = document.getElementById("bio");
 
-  bio.innerHTML += "<p id='bbio'>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non orci sed arcu porttitor tempus vel in dui. Praesent euismod, enim eget maximus lobortis, tellus nunc iaculis lorem, egestas congue diam felis ac orci. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem.";
-  bio.innerHTML += "<br>" + "Cras velit ante, viverra placerat ipsum eget, rutrum ornare mauris. Cras at orci a orci maximus tincidunt. Suspendisse accumsan vestibulum dui. Suspendisse vitae pellentesque nisl. Nam leo arcu, varius ut sodales nec, sollicitudin a ipsum. Vivamus luctus, dui nec efficitur semper, sapien tortor faucibus turpis, eget lacinia urna sem eget augue. Ut finibus ultricies nibh id semper." + "</p><br><br>";
+  bio.innerHTML += "<p id='bbio'>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non orci sed arcu porttitor tempus vel in dui. Praesent euismod, enim eget maximus lobortis, tellus nunc iaculis lorem, egestas congue diam felis ac orci. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem.<br>"+"</p>";
+  bio.innerHTML += "<p id='bbbio'>" + "Cras velit ante, viverra placerat ipsum eget, rutrum ornare mauris. Cras at orci a orci maximus tincidunt. Suspendisse accumsan vestibulum dui. Suspendisse vitae pellentesque nisl. Nam leo arcu, varius ut sodales nec, sollicitudin a ipsum. Vivamus luctus, dui nec efficitur semper, sapien tortor faucibus turpis, eget lacinia urna sem eget augue. Ut finibus ultricies nibh id semper." + "</p>";
 };
 
 function removeBio(){
   var f = document.getElementById("bbio");
+  var c = document.getElementById("bbbio");
   f.parentNode.removeChild(f);
+  c.parentNode.removeChild(c);
 }
 
 window.addEventListener("load", function(){
 
+  if(window.location.href.match('index.html') != null){
     //chooseItems('all');
     showWebDesc();
 
-    document.getElementById("hT").addEventListener("click", function(){
+    document.getElementById("t1").addEventListener("click", function(){
+      if(document.getElementById("bbio") != null){
+        removeBio();
+      }
       clearItems();
       showWebDesc();
     });
 
     document.getElementById("tab2C").addEventListener("click", function(){
       clearItems();
-      removeBio();
+      if(document.getElementById("bbio") != null){
+        removeBio();
+      }
       chooseItems('all');
     });
 
     document.getElementById("tab2A").addEventListener("click", function(){
       clearItems();
-      removeBio();
+      if(document.getElementById("bbio") != null){
+        removeBio();
+      }
       chooseItems('abstract');
     });
     
     document.getElementById("tab2B").addEventListener("click", function(){
       clearItems();
-      removeBio();
+      if(document.getElementById("bbio") != null){
+        removeBio();
+      }
       chooseItems('pour');
     });
-
-    document.getElementById("CT").addEventListener("click", function(){
-      
-    });
-
-  var elem = document.getElementById("contactForm");
+  }
+  else {
+    var elem = document.getElementById("contactForm");
   elem.onsubmit = function validateName() {
     var allAlpha = true;
     var flaggedElem = 0;
@@ -288,6 +300,7 @@ window.addEventListener("load", function(){
     else {
       return true;
     }
+  }
   }
 
 });
