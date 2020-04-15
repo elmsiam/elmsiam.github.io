@@ -176,22 +176,43 @@ function chooseItems (itemType){
     }
 };
 
+function showWebDesc(){
+  var bio = document.getElementById("bio");
+
+  bio.innerHTML += "<p>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non orci sed arcu porttitor tempus vel in dui. Praesent euismod, enim eget maximus lobortis, tellus nunc iaculis lorem, egestas congue diam felis ac orci. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem." + "</p>";
+  bio.innerHTML += "<p><br>" + "Cras velit ante, viverra placerat ipsum eget, rutrum ornare mauris. Cras at orci a orci maximus tincidunt. Suspendisse accumsan vestibulum dui. Suspendisse vitae pellentesque nisl. Nam leo arcu, varius ut sodales nec, sollicitudin a ipsum. Vivamus luctus, dui nec efficitur semper, sapien tortor faucibus turpis, eget lacinia urna sem eget augue. Ut finibus ultricies nibh id semper." + "</p><br><br>";
+};
+
+function removeBio(){
+  var d = document.getElementById("bio");
+  d.parentNode.removeChild(d);
+}
+
 window.addEventListener("load", function(){
 
     chooseItems('all');
+    showWebDesc();
 
     document.getElementById("hT").addEventListener("click", function(){
       clearItems();
+      showWebDesc();
+    });
+
+    document.getElementById("tab2C").addEventListener("click", function(){
+      clearItems();
+      removeBio();
       chooseItems('all');
     });
 
     document.getElementById("tab2A").addEventListener("click", function(){
       clearItems();
+      removeBio();
       chooseItems('abstract');
     });
     
     document.getElementById("tab2B").addEventListener("click", function(){
       clearItems();
+      removeBio();
       chooseItems('pour');
     });
 
