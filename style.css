@@ -4,6 +4,13 @@
       background-color:#bdaab3;
     }
 
+    #bio{
+      margin-left: 15%;
+      margin-right: 15%;
+      color:#8f5771;
+      font-family:monospace;
+    }
+
     #webHead{
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       margin-bottom: 50px;
@@ -31,24 +38,27 @@
       font-size: large;
       width: 10%;
       height:100%;
-      padding-top: 80px;
-      padding-left: 10px;
+      padding-top: 2%;
+      padding-left: 2%;
       z-index: 1;
       justify-content: flex-start;
       flex-direction:column;
     }
     .tab1{
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      padding-top: 5%;
       position: relative;
       display: inline-block;
     }
     .tab2{
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      padding-top: 5%;
       position: relative;
       display: inline-block;
     }
     .tab3{
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      padding-top: 5%;
       position: relative;
       display: inline-block;
     } 
@@ -91,7 +101,7 @@
     }
 
     #formSpace{
-        margin-left: 20%;
+        margin-left: 15%;
         color:#8f5771;
         font-family:monospace;
       }
