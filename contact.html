@@ -46,6 +46,9 @@
         <label for="pNum">Phone Number: </label><br>
         <input id="pNum" type="text" name="pNum" size="25" maxlength="50">
         <br><br>
+        <label for="phoneCheck">Would you like to be phoned?</label><br>
+        <input type="checkbox" name="phoneCheck" value="yes"> Yes
+        <br><br>
         <label for="pCode">Postal Code: </label><br>
         <input id="pCode" type="text" name="pCode" size="25" maxlength="50">
         <br><br><br>
@@ -70,9 +73,12 @@
         <br>
 
         <input type = "submit" value = "Submit information"/>
+        <br><br>
 
       </form>
     </div>
+
+    <div id="errormsg"></div>
 
     <div id="foot">
       <footer id="cpr">©2020 by Liam Morris</footer>
@@ -116,42 +122,69 @@
 
 <script>
   var elem = document.getElementById("contactForm");
-  elem.onsubmit = function validateSurname() {
+  elem.onsubmit = function validateName() {
     var allAlpha = true;
     var flaggedElem = 0;
     var elem1 = document.getElementById("fname");
-    var elem2 = document.getElementById("lname");
-    var message = document.getElementById('a')
-    var inputValue = elem.value.trim();
-    var inputValue2=elem2.value.trim();
+    var inputValue = elem1.value.trim();
     inputValue = inputValue.toUpperCase();
-    inputValue2 = inputValue2.toUpperCase();
-    for (var i = 0; i < inputValue.length; i++) {
-      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z" ) { 
-          allAlpha = false; 
-          flaggedElem = 1;
-      }
-                  
-    } 
-    for (var i = 0; i < inputValue2.length; i++) {
-      if (inputValue2.charAt(i) < "A" || inputValue2.charAt(i) > "Z" ) { 
-        allAlpha = false; 
-        flaggedElem = 2;
-      }
-                  
-    } 
-    if (!allAlpha){
-      message.innerHTML = ("Please enter a name using only letters");
-      if(flaggedElem == 1){
-        elem1.focus();
-      }
-      else if(flaggedElem == 2) {
-        elem2.focus();
-      }
+    if(inputValue.length == 0){
+      alert('Please enter a name');
+      elem.focus();
       return false;
     }
-    else{
-      return true;
+    else {
+      for (var i = 0; i < inputValue.length; i++) {
+        if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+            allAlpha = false; 
+            flaggedElem = 1;
+        }         
+      } 
+      if (!allAlpha){
+        alert('Please enter a name using only letters');
+        elem.focus();
+        return false;
+      }
+      else{
+        return true;
+      }
     }
+    
   }
+
+  elem.onsubmit = function validateLname(){
+    var allAlpha = true;
+    var flaggedElem = 0;
+    var elem2 = document.getElementById("lname");
+    var inputValue = elem2.value.trim();
+    inputValue = inputValue.toUpperCase();
+    if(inputValue.length == 0){
+      alert('Please enter a name');
+      elem.focus();
+      return false;
+    }
+    else {
+      for (var i = 0; i < inputValue.length; i++) {
+        if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+            allAlpha = false; 
+            flaggedElem = 1;
+        }         
+      } 
+      if (!allAlpha){
+        alert('Please enter a name using only letters');
+        elem.focus();
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+
+  elem.onsubmit = function validatePhone(){
+
+  }
+
+
+  }
+
 </script>
