@@ -179,18 +179,18 @@ function chooseItems (itemType){
 function showWebDesc(){
   var bio = document.getElementById("bio");
 
-  bio.innerHTML += "<p>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non orci sed arcu porttitor tempus vel in dui. Praesent euismod, enim eget maximus lobortis, tellus nunc iaculis lorem, egestas congue diam felis ac orci. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem." + "</p>";
-  bio.innerHTML += "<p><br>" + "Cras velit ante, viverra placerat ipsum eget, rutrum ornare mauris. Cras at orci a orci maximus tincidunt. Suspendisse accumsan vestibulum dui. Suspendisse vitae pellentesque nisl. Nam leo arcu, varius ut sodales nec, sollicitudin a ipsum. Vivamus luctus, dui nec efficitur semper, sapien tortor faucibus turpis, eget lacinia urna sem eget augue. Ut finibus ultricies nibh id semper." + "</p><br><br>";
+  bio.innerHTML += "<p id='bbio'>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non orci sed arcu porttitor tempus vel in dui. Praesent euismod, enim eget maximus lobortis, tellus nunc iaculis lorem, egestas congue diam felis ac orci. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem.";
+  bio.innerHTML += "<br>" + "Cras velit ante, viverra placerat ipsum eget, rutrum ornare mauris. Cras at orci a orci maximus tincidunt. Suspendisse accumsan vestibulum dui. Suspendisse vitae pellentesque nisl. Nam leo arcu, varius ut sodales nec, sollicitudin a ipsum. Vivamus luctus, dui nec efficitur semper, sapien tortor faucibus turpis, eget lacinia urna sem eget augue. Ut finibus ultricies nibh id semper." + "</p><br><br>";
 };
 
 function removeBio(){
-  //var f = document.getElementById("bio");
-  //f.parentNode.removeChild(f);
+  var f = document.getElementById("bbio");
+  f.parentNode.removeChild(f);
 }
 
 window.addEventListener("load", function(){
 
-    chooseItems('all');
+    //chooseItems('all');
     showWebDesc();
 
     document.getElementById("hT").addEventListener("click", function(){
@@ -219,5 +219,75 @@ window.addEventListener("load", function(){
     document.getElementById("CT").addEventListener("click", function(){
       
     });
+
+  var elem = document.getElementById("contactForm");
+  elem.onsubmit = function validateName() {
+    var allAlpha = true;
+    var flaggedElem = 0;
+    var elem1 = document.getElementById("fname");
+    var inputValue = elem1.value.trim();
+    inputValue = inputValue.toUpperCase();
+    for (var i = 0; i < inputValue.length; i++) {
+      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+          allAlpha = false; 
+          flaggedElem = 1;
+      }         
+    } 
+    if (!allAlpha){
+      alert('Please enter a name using only letters');
+      elem1.focus();
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  elem.onsubmit = function validateLname(){
+    var allAlpha = true;
+    var flaggedElem = 0;
+    var elem2 = document.getElementById("lname");
+    var inputValue = elem2.value.trim();
+    inputValue = inputValue.toUpperCase();
+    for (var i = 0; i < inputValue.length; i++) {
+      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+          allAlpha = false; 
+          flaggedElem = 1;
+      }         
+    } 
+    if (!allAlpha){
+      alert('Please enter a name using only letters');
+      elem.focus();
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  elem.onsubmit = function validatePhone(){
+    var input = document.getElementById("pNum");
+    if(parseInt(input) != input){
+      alert('Please enter a valid phone number');
+      input.focus();
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  elem.onsubmit = function validatePhone(){
+    var input = document.getElementById("pCode");
+    var searchFor = /^[a-zA-Z][0-9][a-zA-Z](' ')[0-9][a-zA-Z][0-9]$/;
+    if(searchFor.test(input) != true){
+      alert('Please enter a valid postal code');
+      input.focus();
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 
 });

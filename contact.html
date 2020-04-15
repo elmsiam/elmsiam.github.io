@@ -50,7 +50,7 @@
         <input type="checkbox" name="phoneCheck" value="yes"> Yes
         <br><br>
         <label for="pCode">Postal Code: </label><br>
-        <input id="pCode" type="text" name="pCode" maxlength="50" required>
+        <input id="pCode" type="text" name="pCode" required>
         <br><br><br>
 
         Questions<input type="radio" id="b" name="options" onclick='order.style.visibility = "hidden"' value="1"><br>
@@ -61,7 +61,7 @@
         <div id="oQ">
           <label id="prderlbl3" for="ordQ">Comments/Questions: </label>
           <br>
-          <textarea name="commentQ" cols="30" rows="10"></textarea>
+          <textarea name="commentQ" cols="30" rows="10" required></textarea>
           <br>
         </div>
 
@@ -121,64 +121,4 @@
   --></body>
 </html>
 
-<script>
-  var elem = document.getElementById("contactForm");
-  elem.onsubmit = function validateName() {
-    var allAlpha = true;
-    var flaggedElem = 0;
-    var elem1 = document.getElementById("fname");
-    var inputValue = elem1.value.trim();
-    inputValue = inputValue.toUpperCase();
-    for (var i = 0; i < inputValue.length; i++) {
-      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
-          allAlpha = false; 
-          flaggedElem = 1;
-      }         
-    } 
-    if (!allAlpha){
-      alert('Please enter a name using only letters');
-      elem1.focus();
-      return false;
-    }
-    else{
-      return true;
-    }
-  }
-
-  elem.onsubmit = function validateLname(){
-    var allAlpha = true;
-    var flaggedElem = 0;
-    var elem2 = document.getElementById("lname");
-    var inputValue = elem2.value.trim();
-    inputValue = inputValue.toUpperCase();
-    for (var i = 0; i < inputValue.length; i++) {
-      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
-          allAlpha = false; 
-          flaggedElem = 1;
-      }         
-    } 
-    if (!allAlpha){
-      alert('Please enter a name using only letters');
-      elem.focus();
-      return false;
-    }
-    else{
-      return true;
-    }
-      
-    
-  }
-
-  elem.onsubmit = function validatePhone(){
-    var input = document.getElementById("pNum");
-    if(parseInt(input) != input){
-      alert('Please enter a valid phone number');
-      input.focus();
-      return false;
-    }
-    else {
-      return true;
-    }
-  }
-
-</script>
+<script src="script.js"></script>
