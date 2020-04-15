@@ -184,8 +184,8 @@ function showWebDesc(){
 };
 
 function removeBio(){
-  var d = document.getElementById("bio");
-  d.parentNode.removeChild(d);
+  //var f = document.getElementById("bio");
+  //f.parentNode.removeChild(f);
 }
 
 window.addEventListener("load", function(){
