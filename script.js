@@ -107,7 +107,6 @@ const images = [
 function clearItems(){
   var imgnum = document.getElementById("itemscontainer").childElementCount;
     if(imgnum!= 0){
-      console.log(imgnum);
       var d = document.getElementById("itemscontainer").lastElementChild;
       while(d) { 
         document.getElementById("itemscontainer").removeChild(d);
@@ -213,6 +212,15 @@ window.addEventListener("load", function(){
         removeBio();
       }
       chooseItems('all');
+    });
+
+    document.getElementById("t2").addEventListener('click', function(){
+      var x = document.getElementById("drop");
+      if (x.className.indexOf("w3-show") == -1) { 
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
     });
 
     document.getElementById("tab2A").addEventListener("click", function(){
