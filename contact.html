@@ -18,19 +18,19 @@
     <div id='formSpace'>
       <form id="contactForm" method="POST" name="contactMe" action="https://httpbin.org/post">
         <label for="fName">First Name: </label><br>
-        <input id="fname" type="text" name="fName" size="25" maxlength="50">
+        <input id="fname" type="text" name="fName" maxlength="50" required>
         <br><br>
         <label for="lName">Last Name: </label><br>
-        <input id="lname" type="text" name="lName" size="25" maxlength="50">
+        <input id="lname" type="text" name="lName" maxlength="50" required>
         <br><br>
         <label for="email">Email Address: </label><br>
-        <input id="email" type="text" name="email" size="25" maxlength="50">
+        <input id="email" type="text" name="email" maxlength="50" required>
         <br><br>
         <label for="address">Address: </label><br>
-        <input id="address" type="text" name="address" size="25" maxlength="50">
+        <input id="address" type="text" name="address" maxlength="50" required>
         <br><br>
         <label for="city">City: </label><br>
-        <input id="city" type="text" name="city" size="25" maxlength="50" list="cities">
+        <input id="city" type="text" name="city" maxlength="50" list="cities" required>
         <datalist id="cities">
           <option value="Toronto">
           <option value="Montreal">
@@ -44,13 +44,13 @@
         </datalist>
         <br><br>
         <label for="pNum">Phone Number: </label><br>
-        <input id="pNum" type="text" name="pNum" size="25" maxlength="50">
+        <input id="pNum" type="tel" name="pNum" maxlength="50" required>
         <br><br>
         <label for="phoneCheck">Would you like to be phoned?</label><br>
         <input type="checkbox" name="phoneCheck" value="yes"> Yes
         <br><br>
         <label for="pCode">Postal Code: </label><br>
-        <input id="pCode" type="text" name="pCode" size="25" maxlength="50">
+        <input id="pCode" type="text" name="pCode" maxlength="50" required>
         <br><br><br>
 
         Questions<input type="radio" id="b" name="options" onclick='order.style.visibility = "hidden"' value="1"><br>
@@ -61,13 +61,14 @@
         <div id="oQ">
           <label id="prderlbl3" for="ordQ">Comments/Questions: </label>
           <br>
-          <input class ="cmtQ" id="ordQ"><br>
+          <textarea name="commentQ" cols="30" rows="10"></textarea>
+          <br>
         </div>
 
         <div id="order"style="visibility: hidden;">
           <label id="prderLbl" for="ordNum">Order Number: </label>
           <br>
-          <input id="ordNum"><br>
+          <input id="ordNum" type="text"><br>
         </div>
 
         <br>
@@ -128,28 +129,20 @@
     var elem1 = document.getElementById("fname");
     var inputValue = elem1.value.trim();
     inputValue = inputValue.toUpperCase();
-    if(inputValue.length == 0){
-      alert('Please enter a name');
-      elem.focus();
+    for (var i = 0; i < inputValue.length; i++) {
+      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+          allAlpha = false; 
+          flaggedElem = 1;
+      }         
+    } 
+    if (!allAlpha){
+      alert('Please enter a name using only letters');
+      elem1.focus();
       return false;
     }
-    else {
-      for (var i = 0; i < inputValue.length; i++) {
-        if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
-            allAlpha = false; 
-            flaggedElem = 1;
-        }         
-      } 
-      if (!allAlpha){
-        alert('Please enter a name using only letters');
-        elem.focus();
-        return false;
-      }
-      else{
-        return true;
-      }
+    else{
+      return true;
     }
-    
   }
 
   elem.onsubmit = function validateLname(){
@@ -158,33 +151,34 @@
     var elem2 = document.getElementById("lname");
     var inputValue = elem2.value.trim();
     inputValue = inputValue.toUpperCase();
-    if(inputValue.length == 0){
-      alert('Please enter a name');
+    for (var i = 0; i < inputValue.length; i++) {
+      if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
+          allAlpha = false; 
+          flaggedElem = 1;
+      }         
+    } 
+    if (!allAlpha){
+      alert('Please enter a name using only letters');
       elem.focus();
       return false;
     }
-    else {
-      for (var i = 0; i < inputValue.length; i++) {
-        if (inputValue.charAt(i) < "A" || inputValue.charAt(i) > "Z") { 
-            allAlpha = false; 
-            flaggedElem = 1;
-        }         
-      } 
-      if (!allAlpha){
-        alert('Please enter a name using only letters');
-        elem.focus();
-        return false;
-      }
-      else{
-        return true;
-      }
+    else{
+      return true;
     }
-
-  elem.onsubmit = function validatePhone(){
-
+      
+    
   }
 
-
+  elem.onsubmit = function validatePhone(){
+    var input = document.getElementById("pNum");
+    if(parseInt(input) != input){
+      alert('Please enter a valid phone number');
+      input.focus();
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 
 </script>
