@@ -195,7 +195,7 @@ function removeBio(){
 window.addEventListener("load", function(){
 
   if(window.location.href.match('index.html') != null){
-    //chooseItems('all');
+    chooseItems('all');
     showWebDesc();
 
     document.getElementById("t1").addEventListener("click", function(){
@@ -203,6 +203,7 @@ window.addEventListener("load", function(){
         removeBio();
       }
       clearItems();
+      chooseItems('all');
       showWebDesc();
     });
 
@@ -212,15 +213,6 @@ window.addEventListener("load", function(){
         removeBio();
       }
       chooseItems('all');
-    });
-
-    document.getElementById("t2").addEventListener('click', function(){
-      var x = document.getElementById("drop");
-      if (x.className.indexOf("w3-show") == -1) { 
-        x.className += " w3-show";
-      } else {
-        x.className = x.className.replace(" w3-show", "");
-      }
     });
 
     document.getElementById("tab2A").addEventListener("click", function(){
