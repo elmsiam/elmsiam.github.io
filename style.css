@@ -1,14 +1,15 @@
 /** Add any CSS you need to this file. */
 
     #whole{
-      background-color:#bdaab3;
+      background-color:#FAEDCA;
+      color:#FE5D26;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     #bio{
       margin-left: 15%;
       margin-right: 15%;
-      color:#8f5771;
+      color:#81CDDB;
       font-family:monospace;
     }
 
@@ -17,23 +18,27 @@
       margin-bottom: 5%;
       top: 0;
       height: 100px;
-      background-color: #f5e1ef;
+      color:#FE5D26;
+      background-image: url("./images/headBG.png");
+      background-repeat: round;
       text-align: center;
       vertical-align: middle;
       width:100%;
+      border: 2px solid #FE5D26;
+      border-radius: 5px;
     }
 
     a:link {
-      color: white;
+      color: #FE5D26;
       text-decoration: none;
     }
 
     a:visited {
-      color: white;
+      color: #FE5D26;
       text-decoration: none;
     }
     a:hover {
-      color: #633d3b;
+      color: #7EBC89;
       text-decoration: none;
     }
 
@@ -42,8 +47,8 @@
       top: 0;
       left: 0;
       display:flex;
-      background-color:#a67e91;
-      color: white;
+      background-color:#C1DBB3;
+      color: #FE5D26;
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: large;
       width: 10%;
@@ -77,14 +82,14 @@
       display: none;
       position: absolute;
       left: 0;
-      background-color: #c99494;
+      background-color: #7EBC89;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
     }
 
     .dropdown-content a {
-      color: white;
+      color: #FE5D26;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
@@ -94,25 +99,39 @@
       margin-right:10px;
       margin-left: 13%;
       font-size: medium;
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      flex: 1 1 auto;
     }
 
-    #itemscontainer img{
+    #itemscontainer figure{
       margin-right:10px;
       margin-left: 5%;
       margin-bottom: 8%;
       margin-top: auto;
-      background-color: #8f5771;
+      border: 5px solid #7EBC89;
+      border-radius: 5px;
       position: relative;
       padding: 10px;
       font-family:monospace;
       width: 15%;
       height:15%;
     }
+    #itemscontainer figcaption{
+      text-align: center;
+    }
+    #itemscontainer img{
+      padding:20px;
+      width: 80%;
+      height:80%;
+      position: center;
+    }
 
 
     #foot{
       margin-left: 15%;
-      color:#8f5771;
+      color:#81CDDB;
       font-family:monospace;
     }
 
@@ -122,9 +141,9 @@
 
     #formSpace{
         margin-left: 15%;
-        color:#8f5771;
+        color:#81CDDB;
         font-family:monospace;
       }
 
-    .dropdown-content a:hover {background-color: #633d3b;}
+    .dropdown-content a:hover {background-color: #FAEDCA;}
     .show {display:block;}

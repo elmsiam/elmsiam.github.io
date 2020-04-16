@@ -3,7 +3,7 @@
 const images = [
     {
       caption: 'Everyday Lizardman',
-      type: 'Abstract',
+      type: 'Abstract Painting',
       alt: 'Lizardman',
       src:
         './images/p1.png',
@@ -13,7 +13,7 @@ const images = [
     },
     {
       caption: 'Lava Marble',
-      type: 'pour',
+      type: 'Poured Painting',
       alt: 'Lava',
       src:
         './images/p2.png',
@@ -23,7 +23,7 @@ const images = [
     },
     {
       caption: 'Inverted Clouds',
-      type: 'abstract',
+      type: 'Abstract Painting',
       alt: 'Clouds',
       src:
         './images/p3.png',
@@ -33,7 +33,7 @@ const images = [
     },
     {
       caption: 'Box Pattern',
-      type: 'abstract',
+      type: 'Abstract Painting',
       alt: 'Box',
       src:
         './images/p4.png',
@@ -43,7 +43,7 @@ const images = [
     },
     {
       caption: 'Sand String',
-      type: 'pour',
+      type: 'Poured Painting',
       alt: 'Sand',
       src:
         './images/p5.png',
@@ -53,7 +53,7 @@ const images = [
     },
     {
       caption: 'Round Waves',
-      type: 'abstract',
+      type: 'Abstract Painting',
       alt: 'Waves',
       src:
         './images/p6.png',
@@ -63,7 +63,7 @@ const images = [
     },
     {
       caption: 'Lizard Cave',
-      type: 'pour',
+      type: 'Poured Painting',
       alt: 'Cave',
       src:
         './images/p7.png',
@@ -73,7 +73,7 @@ const images = [
     },
     {
       caption: 'Fish and Mud',
-      type: 'abstract',
+      type: 'Abstract Painting',
       alt: 'Fish',
       src:
         './images/p8.png',
@@ -83,7 +83,7 @@ const images = [
     },
     {
       caption: 'Busy Bubbles',
-      type: 'abstract',
+      type: 'Abstract Painting',
       alt: 'Bubbles',
       src:
         './images/p9.png',
@@ -93,7 +93,7 @@ const images = [
     },
     {
       caption: 'Galaxy Hearts',
-      type: 'pour',
+      type: 'Poured Painting',
       alt: 'Hearts',
       src:
         './images/p10.png',
@@ -124,19 +124,19 @@ function chooseItems (itemType){
         document.getElementById("itemscontainer").appendChild(titleH);
         //show only abstract paintings
         for (var i in images) {
-            if(images[i].type=='abstract'){
-                //var figPic = document.createElement("figure");
-                //var descPrice = document.createElement("figcaption");
+            if(images[i].type=='Abstract Painting'){
+                var figPic = document.createElement("figure");
+                var descPrice = document.createElement("figcaption");
                 var img = document.createElement("img");
                 img.src = images[i].src;
                 img.alt = images[i].alt;
                 img.id = idNum;
                 
-                //descPrice.innerHTML += images[i].caption + "<br>" + images[i].desc + "<br>" + images[i].price;
-                //figPic.appendChild(img);
-                //figPic.appendChild(descPrice);
+                descPrice.innerHTML += images[i].caption + "<br>" + images[i].type + "<br>" + images[i].desc + "<br>" + images[i].price;
+                figPic.appendChild(img);
+                figPic.appendChild(descPrice);
 
-                document.getElementById("itemscontainer").appendChild(img);
+                document.getElementById("itemscontainer").appendChild(figPic);
                 idNum+=1; 
             }
         }
@@ -148,19 +148,19 @@ function chooseItems (itemType){
         //show only pour paintings
         for (var i in images) {
           
-            if(images[i].type=='pour'){
-                //var figPic = document.createElement("figure");
-                //var descPrice = document.createElement("figcaption");
+            if(images[i].type=='Poured Painting'){
+                var figPic = document.createElement("figure");
+                var descPrice = document.createElement("figcaption");
                 var img = document.createElement("img");
                 img.src = images[i].src;
                 img.alt = images[i].alt;
                 img.id = idNum;
                 
-                //descPrice.innerHTML += images[i].caption + "<br>" + images[i].desc + "<br>" + images[i].price;
-                //figPic.appendChild(img);
-                //figPic.appendChild(descPrice);
+                descPrice.innerHTML += images[i].caption + "<br>" + images[i].type + "<br>" + images[i].desc + "<br>" + images[i].price;
+                figPic.appendChild(img);
+                figPic.appendChild(descPrice);
 
-                document.getElementById("itemscontainer").appendChild(img);
+                document.getElementById("itemscontainer").appendChild(figPic);
                 idNum+=1;
             }
         }
@@ -171,18 +171,18 @@ function chooseItems (itemType){
         document.getElementById("itemscontainer").appendChild(titleH);
     //show all items
         for (var i in images) {
-          //var figPic = document.createElement("figure");
-          //var descPrice = document.createElement("figcaption");
+          var figPic = document.createElement("figure");
+          var descPrice = document.createElement("figcaption");
           var img = document.createElement("img");
           img.src = images[i].src;
           img.alt = images[i].alt;
           img.id = idNum;
                 
-          //descPrice.innerHTML += images[i].caption + "<br>" + images[i].desc + "<br>" + images[i].price;
-          //figPic.appendChild(img);
-          //figPic.appendChild(descPrice);
+          descPrice.innerHTML += images[i].caption + "<br>" + images[i].type + "<br>" + images[i].desc + "<br>" + images[i].price;
+          figPic.appendChild(img);
+          figPic.appendChild(descPrice);
 
-          document.getElementById("itemscontainer").appendChild(img);
+          document.getElementById("itemscontainer").appendChild(figPic);
           idNum+=1;
         }
     }
