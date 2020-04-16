@@ -204,7 +204,7 @@ function removeBio(){
 
 window.addEventListener("load", function(){
 
-  if(window.location.href.match('*/index.html') != null){
+  if(window.location.href.match('index.html') != null){
     chooseItems('all');
     showWebDesc();
 
