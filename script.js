@@ -95,6 +95,7 @@ const images = [
 
 
 function clearItems(){
+  var headCnt = document.getElementById("paintHead").childElementCount;
   var imgnum = document.getElementById("itemscontainer").childElementCount;
     if(imgnum!= 0){
       var d = document.getElementById("itemscontainer").lastElementChild;
@@ -103,16 +104,22 @@ function clearItems(){
         d = document.getElementById("itemscontainer").lastElementChild;
       } 
     }
+    if(headCnt!= 0){
+      var e = document.getElementById("paintHead").lastElementChild;
+      while(e) { 
+        document.getElementById("paintHead").removeChild(e);
+        e = document.getElementById("paintHead").lastElementChild;
+      } 
+    }
 };
 
 function chooseItems (itemType){
     var idNum = 0;
 
     if(itemType == 'abstract'){
-        var titleH = document.createElement("h3");
-        titleH.innerText = "Abstract Paintings";
-        document.getElementById("itemscontainer").appendChild(titleH);
-        document.getElementById("itemscontainer").innerHTML += "<br><br><br>";
+      var titleH = document.createElement("h3");
+      titleH.innerText = "Abstract Paintings";
+      document.getElementById("paintHead").appendChild(titleH);
         //show only abstract paintings
         for (var i in images) {
             if(images[i].type=='Abstract Painting'){
@@ -133,9 +140,9 @@ function chooseItems (itemType){
         }
     }
     else if (itemType == 'pour'){
-        var titleH = document.createElement("h3");
-        titleH.innerText = "Poured Paintings";
-        document.getElementById("itemscontainer").appendChild(titleH);
+      var titleH = document.createElement("h3");
+      titleH.innerText = "Pour Paintings";
+      document.getElementById("paintHead").appendChild(titleH);
         //show only pour paintings
         for (var i in images) {
           
@@ -159,7 +166,7 @@ function chooseItems (itemType){
     else {
         var titleH = document.createElement("h3");
         titleH.innerText = "All Paintings";
-        document.getElementById("itemscontainer").appendChild(titleH);
+        document.getElementById("paintHead").appendChild(titleH);
     //show all items
         for (var i in images) {
           var figPic = document.createElement("figure");
