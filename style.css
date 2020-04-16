@@ -90,9 +90,15 @@
       display: block;
     }
 
+    #itemscontainer{
+      margin-right:10px;
+      margin-left: 13%;
+      font-size: medium;
+    }
+
     #itemscontainer img{
       margin-right:10px;
-      margin-left: 15%;
+      margin-left: 5%;
       margin-bottom: 8%;
       margin-top: auto;
       background-color: #8f5771;
@@ -121,4 +127,4 @@
       }
 
     .dropdown-content a:hover {background-color: #633d3b;}
-    .tab2:hover .dropdown-content{display: block;}
+    .show {display:block;}

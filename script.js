@@ -119,6 +119,9 @@ function chooseItems (itemType){
     var idNum = 0;
 
     if(itemType == 'abstract'){
+        var titleH = document.createElement("h3");
+        titleH.innerText = "Abstract Paintings";
+        document.getElementById("itemscontainer").appendChild(titleH);
         //show only abstract paintings
         for (var i in images) {
             if(images[i].type=='abstract'){
@@ -139,8 +142,12 @@ function chooseItems (itemType){
         }
     }
     else if (itemType == 'pour'){
+        var titleH = document.createElement("h3");
+        titleH.innerText = "Poured Paintings";
+        document.getElementById("itemscontainer").appendChild(titleH);
         //show only pour paintings
         for (var i in images) {
+          
             if(images[i].type=='pour'){
                 //var figPic = document.createElement("figure");
                 //var descPrice = document.createElement("figcaption");
@@ -159,6 +166,9 @@ function chooseItems (itemType){
         }
     }
     else {
+        var titleH = document.createElement("h3");
+        titleH.innerText = "All Paintings";
+        document.getElementById("itemscontainer").appendChild(titleH);
     //show all items
         for (var i in images) {
           //var figPic = document.createElement("figure");
@@ -194,7 +204,7 @@ function removeBio(){
 
 window.addEventListener("load", function(){
 
-  if(window.location.href.match('index.html') != null){
+  if(window.location.href.match('*/index.html') != null){
     chooseItems('all');
     showWebDesc();
 
@@ -206,6 +216,24 @@ window.addEventListener("load", function(){
       chooseItems('all');
       showWebDesc();
     });
+
+    document.getElementById("t2").addEventListener("click", function(){
+      document.getElementById("drop").classList.toggle("show");
+      
+    });
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
 
     document.getElementById("tab2C").addEventListener("click", function(){
       clearItems();
