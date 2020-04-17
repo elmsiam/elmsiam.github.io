@@ -23,7 +23,7 @@
 
     #bio{
       margin-top: 5%;
-      margin-right: 15%;
+      margin-right: 5%;
       text-align: left;
       color:#4EB2C4;
       font-family:monospace;
@@ -36,7 +36,7 @@
 
     #PHead1{
       margin-left:15%;
-      position: auto;
+      display: inline-block;
     }
 
     a.tabLink:link {
