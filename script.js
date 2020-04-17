@@ -187,8 +187,6 @@ function chooseItems (itemType){
 };
 
 function showWebDesc(){
-  var PHeadID = document.getElementById("PHead1");
-  PHeadID.style.marginTop = "10%";
   var bio = document.getElementById("bio");
 
   bio.innerHTML += "<p id='bbio'>" + "Liam Morris is a painter who has been painting since the young age of two months. This is the official website to buy his paintings. Please buy something so he can pay off his hefty art school loan debt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec justo non sem pretium accumsan. Nullam feugiat eleifend nunc rutrum imperdiet. Maecenas a elementum magna. In id mi eros. Etiam interdum rhoncus felis, sed vehicula ante dignissim ac. Proin et pulvinar mi, ut efficitur tortor. Nullam suscipit rhoncus ultricies. Proin posuere, urna id rutrum rhoncus, lacus massa sollicitudin nisi, a luctus mauris diam commodo lorem.<br>"+"</p>";
