@@ -6,14 +6,6 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
-    #bio{
-      margin-top: 10%;
-      margin-left: 15%;
-      margin-right: 15%;
-      color:#4EB2C4;
-      font-family:monospace;
-    }
-
     #webHead{
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       margin-bottom: 5%;
@@ -29,21 +21,34 @@
       border-radius: 5px;
     }
 
+    #bio{
+      margin-top: 5%;
+      margin-right: 15%;
+      text-align: left;
+      color:#4EB2C4;
+      font-family:monospace;
+    }
+
     #webHead img{
       height:100px;
       width:100px;
     }
 
-    a:link {
+    #PHead1{
+      margin-left:15%;
+      position: auto;
+    }
+
+    a.tabLink:link {
       color: #FE5D26;
       text-decoration: none;
     }
 
-    a:visited {
+    a.tabLink:visited {
       color: #FE5D26;
       text-decoration: none;
     }
-    a:hover {
+    a.tabLink:hover {
       color: #7EBC89;
       text-decoration: none;
     }
@@ -121,6 +126,7 @@
       margin-left: 13%;
       font-size: medium;
     }
+    
     #itemscontainer figure{
       margin-right:10px;
       margin-left: 5%;
@@ -146,6 +152,15 @@
       position: center;
     }
 
+    a.ftLink:link,
+    a.ftLink:visited{
+      color:#4EB2C4;
+      text-decoration: none;
+    }
+    a.ftLink:hover{
+      color: #FE5D26;
+      text-decoration: none;
+    }
 
     #foot{
       margin-left: 15%;
